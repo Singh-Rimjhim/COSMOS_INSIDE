@@ -1,0 +1,414 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #f5f1ff;
+  background: #080713;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button, a {
+  font: inherit;
+}
+
+button:focus-visible, a:focus-visible {
+  outline: 2px solid #c5a5ff;
+  outline-offset: 4px;
+}
+
+.universe {
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background:
+    radial-gradient(ellipse at 50% 45%, #17102c 0%, #0b0a19 46%, #080713 85%);
+}
+
+.topbar {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 0 7%;
+  border-bottom: 1px solid #ffffff12;
+  position: relative;
+  z-index: 5;
+}
+
+.brand {
+  color: #fff;
+  text-decoration: none;
+  font: 700 16px 'Space Grotesk', sans-serif;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.brand-symbol {
+  color: #b99aff;
+  margin-right: 8px;
+}
+
+.brand-light {
+  color: #c4b8e7;
+  font-weight: 400;
+}
+
+.top-label, .system-status {
+  font-size: 9px;
+  letter-spacing: 1.6px;
+  white-space: nowrap;
+}
+
+.top-label {
+  color: #827d9e;
+}
+
+.system-status {
+  color: #b7b1cb;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-right: 7px;
+  background: #7cf3c0;
+  box-shadow: 0 0 12px #7cf3c0;
+}
+
+.hero {
+  text-align: center;
+  padding: 36px 20px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  color: #b99aff;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  line-height: 1.8;
+}
+
+.hero h1 {
+  font: 500 clamp(34px, 4.6vw, 56px)/1.12 'Space Grotesk', sans-serif;
+  letter-spacing: -1.8px;
+  margin: 15px 0 12px;
+}
+
+.hero h1 span {
+  color: #b99aff;
+  text-shadow: 0 0 38px #9a69ff35;
+}
+
+.subtitle {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #aaa4c1;
+}
+
+.hero-tag {
+  display: inline-block;
+  margin-top: 9px;
+  padding: 8px 14px;
+  border: 1px solid #b99aff32;
+  border-radius: 30px;
+  background: #b99aff08;
+  color: #c9bbeb;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+.scene-wrap {
+  width: 100%;
+  max-width: 1150px;
+  height: clamp(370px, 48vw, 520px);
+  margin: 0 auto;
+  position: relative;
+  isolation: isolate;
+}
+
+.scene-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 10% 10%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse, #6844a51c, transparent 70%);
+}
+
+.scene-wrap canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  touch-action: pan-y;
+}
+
+.scene-hint, .scene-caption {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  white-space: nowrap;
+  color: #9b91b7;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+.scene-hint {
+  top: 12px;
+}
+
+.scene-hint span {
+  color: #c3a4ff;
+  padding: 0 5px;
+}
+
+.scene-caption {
+  bottom: 12px;
+  font-size: 8px;
+}
+
+.discovery {
+  width: min(600px, 88%);
+  min-height: 125px;
+  margin: 0 auto 25px;
+  padding: 21px 24px;
+  border: 1px solid #b99aff30;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ffffff08, #ffffff02);
+  box-shadow: 0 15px 50px #00000012;
+  position: relative;
+  z-index: 4;
+}
+
+.empty-discovery {
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 7px;
+}
+
+.discovery-star {
+  color: #c3a4ff;
+  font-size: 21px;
+}
+
+.empty-discovery p {
+  margin: 0;
+  color: #c7b8e9;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+
+.discovery-subtitle {
+  color: #8d86a8;
+  font-size: 11px;
+}
+
+.planet-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  animation: reveal 0.25s ease-out;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.planet-indicator {
+  flex-shrink: 0;
+  width: 13px;
+  height: 13px;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: var(--planet-color);
+  box-shadow: 0 0 17px var(--planet-color);
+}
+
+.planet-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.planet-copy .eyebrow {
+  margin: 0 0 7px;
+  font-size: 9px;
+}
+
+.planet-copy h2 {
+  margin: 0 0 8px;
+  font: 500 27px 'Space Grotesk', sans-serif;
+}
+
+.planet-description {
+  margin: 0;
+  color: #aaa4c1;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.planet-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 17px;
+}
+
+.planet-facts div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.planet-facts span {
+  color: #817a9b;
+  font-size: 8px;
+  letter-spacing: 1.2px;
+}
+
+.planet-facts strong {
+  color: #e2d9f8;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.close-btn {
+  flex-shrink: 0;
+  color: #c4b0ff;
+  background: transparent;
+  border: 1px solid #b99aff40;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 9px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background: #b99aff12;
+}
+
+.footer {
+  min-height: 65px;
+  padding: 20px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  border-top: 1px solid #ffffff10;
+  color: #827d9e;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+@media (max-width: 600px) {
+  .topbar {
+    min-height: 64px;
+    padding: 0 5%;
+    gap: 10px;
+  }
+
+  .brand {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .brand-symbol {
+    margin-right: 4px;
+  }
+
+  .top-label {
+    display: none;
+  }
+
+  .system-status {
+    font-size: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  .hero {
+    padding-top: 37px;
+  }
+
+  .hero h1 {
+    letter-spacing: -1px;
+  }
+
+  .scene-wrap {
+    height: 390px;
+  }
+
+  .scene-hint {
+    font-size: 8px;
+    letter-spacing: 0.8px;
+  }
+
+  .discovery {
+    width: 91%;
+    padding: 18px 14px;
+  }
+
+  .planet-info {
+    gap: 10px;
+  }
+
+  .planet-copy h2 {
+    font-size: 23px;
+  }
+
+  .planet-facts {
+    gap: 15px;
+  }
+
+  .close-btn {
+    padding: 7px;
+    font-size: 8px;
+  }
+
+  .footer {
+    padding: 20px 5%;
+    font-size: 7px;
+    letter-spacing: 0.7px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .planet-info {
+    animation: none;
+  }
+}
